@@ -213,20 +213,20 @@ log.addHandler(ch)
 
 # Load configured plugins
 
-# if config.has_option('Program', 'plugins'):
-#     config_plugins = config.get('Program', 'plugins').split(',')
-#     config_plugins = [plugin.strip(' ') for plugin in config_plugins]
-#     log.info('Configured plugins: %s' % ', '.join(config_plugins))
+if config.has_option('Program', 'plugins'):
+    config_plugins = config.get('Program', 'plugins').split(',')
+    config_plugins = [plugin.strip(' ') for plugin in config_plugins]
+    log.info('Configured plugins: %s' % ', '.join(config_plugins))
 
-#     sys.path.insert(0, path)
-#     for plugin in config_plugins:
-#         log.info('Loading plugin: %s' % plugin)
-#         mod = __import__(plugin)
-#         plugins[plugin] = mod.Plugin()
-#     log.info('All plugins loaded.')
-# else:
-#     log.info('No plugins configured.')
-# sys.path.pop(0)
+    sys.path.insert(0, path)
+    for plugin in config_plugins:
+        log.info('Loading plugin: %s' % plugin)
+        mod = __import__(plugin)
+        plugins[plugin] = mod.Plugin()
+    log.info('All plugins loaded.')
+else:
+    log.info('No plugins configured.')
+sys.path.pop(0)
 
 # ble_address = config.get('Scale', 'ble_address')
 # device_name = config.get('Scale', 'device_name')
@@ -310,7 +310,7 @@ while True:
                 continue_comms = False
             if continue_comms:
                 log.info('Waiting for notifications for another 30 seconds')
-                time.sleep(30)
+                time.sleep(15)
                 try:
                     device.disconnect()
                 except pygatt.exceptions.NotConnectedError:
