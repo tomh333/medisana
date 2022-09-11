@@ -159,12 +159,11 @@ class Plugin:
             googleauthfile = pluginconfig.get(personsection, 'googleauthfile')
             print('Updating Google Fit for user %s with weight %s and google authfile: %s' %
                      (scaleuser, weightdata[0]['weight'], googleauthfile))
-            try:
-                self.googleClient = self.GetGoogleClient(googleauthfile)
-                self.AddGoogle(self.googleClient, weightdata[0]['weight'], WEIGHTD, googleauthfile)
-                self.AddGoogle(self.googleClient, bodydata[0]['fat'], FATD, googleauthfile)
-            except:
-                print('Unable to update Google Fit: Error sending data.')
+            
+            self.googleClient = self.GetGoogleClient(googleauthfile)
+            self.AddGoogle(self.googleClient, weightdata[0]['weight'], WEIGHTD, googleauthfile)
+            self.AddGoogle(self.googleClient, bodydata[0]['fat'], FATD, googleauthfile)
+            print('Unable to update Google Fit: Error sending data.')
 
         # finally end this plugin execution with
         print('Finished plugin: ' + __name__)
