@@ -323,8 +323,8 @@ while True:
                     weightdatasorted = sorted(weightdata, key=lambda k: k['timestamp'], reverse=True)
                     bodydatasorted = sorted(bodydata, key=lambda k: k['timestamp'], reverse=True)
                     
-                    # Run all plugins found
-                    for plugin in plugins.values():
-                        plugin.execute(config, persondata, weightdatasorted, bodydatasorted)
+                    # # Run all plugins found
+                    # for plugin in plugins.values():
+                    #     plugin.execute(config, persondata, weightdatasorted, bodydatasorted)
                 else:
                     log.error('Unreliable data received. Unable to process')
