@@ -72,10 +72,13 @@ class Plugin:
     def CheckDataSource(self, googleClient, dataSourceId, dataSource):
         """Ensure datasource exists for the device or create if not"""
         try:
+            print(dataSource)
+            print("creating data source")
             googleClient.users().dataSources().get(
                 userId='me',
                 dataSourceId=dataSourceId).execute()
         except (HttpError, error):
+            print("data source not found")
             if 'DataSourceId not found' not in str(error):
                 raise error
             googleClient.users().dataSources().create(
