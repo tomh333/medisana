@@ -41,12 +41,12 @@ class Plugin:
 
     def GetGoogleClient(self, filename):
         global log
-        log.info("Creating Google client")
-        log.info("Reading auth file %s", filename)
+        print("Creating Google client")
+        print("Reading auth file %s", filename)
         credentials = Storage(filename).get()
         http = credentials.authorize(httplib2.Http())
         client = build('fitness', 'v1', http=http)
-        log.info("Google client created")
+        print("Google client created")
         return client
 
 
@@ -61,8 +61,8 @@ class Plugin:
             dataType=newDataType,
             device=dict(
                 type='scale',
-                manufacturer='medisana',
-                model='BS444',
+                manufacturer='unknown',
+                model='unknown',
                 uid='10000001',
                 version='1',
                 )
@@ -87,7 +87,7 @@ class Plugin:
         minLogNs = self.nano(time.time())
         maxLogNs = self.nano(time.time())
         datasetId = '%s-%s' % (minLogNs, maxLogNs)
-        log.info('Created a new dataset: %s' % (datasetId))
+        print('Created a new dataset: %s' % (datasetId))
 
         dataType = dict(
             name=typeofdata['dataName'],
@@ -100,7 +100,7 @@ class Plugin:
 
         # if data source does not exiest, create it
         self.CheckDataSource(googleClient, dataSourceId, dataSource)
-        log.info('Data Source ID: %s' % (dataSourceId))
+        print('Data Source ID: %s' % (dataSourceId))
 
         googleClient.users().dataSources().datasets().patch(
             userId='me',
