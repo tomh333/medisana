@@ -1,1 +1,5 @@
-Sun, 11 Sep 2022 21:26:50 INFO     <module> Configured plugins: BS440google
+Sun, 11 Sep 2022 21:31:13 INFO     <module> Configured plugins: BS440google
+Sun, 11 Sep 2022 21:31:13 INFO     <module> Loading plugin: BS440google
+Sun, 11 Sep 2022 21:31:14 INFO     <module> All plugins loaded.
+Sun, 11 Sep 2022 21:31:14 INFO     <module> BS440 Started
+Sun, 11 Sep 2022 21:31:14 INFO     init_ble_mode b''

@@ -75,7 +75,7 @@ class Plugin:
             googleClient.users().dataSources().get(
                 userId='me',
                 dataSourceId=dataSourceId).execute()
-        except HttpError, error:
+        except (HttpError, error):
             if 'DataSourceId not found' not in str(error):
                 raise error
             googleClient.users().dataSources().create(

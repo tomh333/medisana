@@ -191,8 +191,8 @@ Main program loop
 '''
 config = ConfigParser()
 config.read('config.ini')
-# path = "plugins/"
-# plugins = {}
+path = "plugins/"
+plugins = {}
 
 # set up logging
 numeric_level = 10;
