@@ -55,12 +55,12 @@ def decodePerson(handle, values):
 
 def sanitize_timestamp(timestamp):
     retTS = 0
-    if timestamp + time_offset < sys.maxint:
+    if timestamp + time_offset < sys.maxsize:
         retTS = timestamp + time_offset
     else:
         retTS = timestamp
 
-    if timestamp >= sys.maxint:
+    if timestamp >= sys.maxsize:
         retTS = 0
 
     return retTS
