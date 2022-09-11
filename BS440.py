@@ -261,7 +261,9 @@ adapter = pygatt.backends.GATTToolBackend()
 adapter.start()
 
 while True:
+    print("Waiting for device")
     wait_for_device(device_name)
+    print("Connecting to device")
     device = connect_device(ble_address)
     if device:
         persondata = []
