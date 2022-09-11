@@ -232,7 +232,7 @@ log.addHandler(ch)
 # device_name = config.get('Scale', 'device_name')
 # device_model = config.get('Scale', 'device_model')
 
-ble_address = "aa:bb:cc:11:22:33"
+ble_address = "6C:47:60:56:BC:B7"
 device_name = "0202B6332211CCBBAA"
 device_model = "BS444"
 
