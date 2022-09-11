@@ -189,8 +189,8 @@ def init_ble_mode():
 '''
 Main program loop
 '''
-# config = ConfigParser()
-# config.read('BS440.ini')
+config = ConfigParser()
+config.read('config.ini')
 # path = "plugins/"
 # plugins = {}
 
@@ -323,8 +323,9 @@ while True:
                     weightdatasorted = sorted(weightdata, key=lambda k: k['timestamp'], reverse=True)
                     bodydatasorted = sorted(bodydata, key=lambda k: k['timestamp'], reverse=True)
                     
-                    # # Run all plugins found
-                    # for plugin in plugins.values():
-                    #     plugin.execute(config, persondata, weightdatasorted, bodydatasorted)
+                    # Run all plugins found
+                    for plugin in plugins.values():
+                        plugin.execute(config, persondata, weightdatasorted, bodydatasorted)
+
                 else:
                     log.error('Unreliable data received. Unable to process')
