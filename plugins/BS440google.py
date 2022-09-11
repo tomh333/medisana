@@ -79,8 +79,7 @@ class Plugin:
                 dataSourceId=dataSourceId).execute()
         except:
             print("data source not found")
-            if 'DataSourceId not found' not in str(error):
-                raise error
+            
             googleClient.users().dataSources().create(
                 userId='me', body=dataSource).execute()
 
