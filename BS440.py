@@ -325,6 +325,7 @@ while True:
                     
                     # Run all plugins found
                     for plugin in plugins.values():
+                        print("Running plugin")
                         plugin.execute(config, persondata, weightdatasorted, bodydatasorted)
 
                 else:
