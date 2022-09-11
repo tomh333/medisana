@@ -132,6 +132,7 @@ class Plugin:
         
     def execute(self, globalconfig, persondata, weightdata, bodydata):
         global log
+        print("Running plugin")
         # --- part of plugin skeleton
         # your plugin receives the config details from BS440.ini as well as
         # all the data received frm the scale
