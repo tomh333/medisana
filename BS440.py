@@ -310,7 +310,7 @@ while True:
                 continue_comms = False
             if continue_comms:
                 log.info('Waiting for notifications for another 30 seconds')
-                time.sleep(15)
+                time.sleep(5)
                 try:
                     device.disconnect()
                 except pygatt.exceptions.NotConnectedError:
