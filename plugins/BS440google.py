@@ -137,12 +137,12 @@ class Plugin:
         # your plugin receives the config details from BS440.ini as well as
         # all the data received frm the scale
         log = logging.getLogger(__name__)
-        log.info('Starting plugin: ' + __name__)
+        print('Starting plugin: ' + __name__)
         #read ini file from same location as plugin resides, named [pluginname].ini
         configfile = os.path.dirname(os.path.realpath(__file__)) + '/' + __name__ + '.ini'
         pluginconfig = ConfigParser()
         pluginconfig.read(configfile)
-        log.info('ini read from: ' + configfile)
+        print('ini read from: ' + configfile)
 
         # Thats it! From here do your thing with the data.
         # Be sure to catch and log errors if you're doing risky stuff  
@@ -156,14 +156,14 @@ class Plugin:
         if pluginconfig.has_section(personsection):           
             scaleuser = pluginconfig.get(personsection, 'username')
             googleauthfile = pluginconfig.get(personsection, 'googleauthfile')
-            log.info('Updating Google Fit for user %s with weight %s and google authfile: %s' %
+            print('Updating Google Fit for user %s with weight %s and google authfile: %s' %
                      (scaleuser, weightdata[0]['weight'], googleauthfile))
             try:
                 self.googleClient = self.GetGoogleClient(googleauthfile)
                 self.AddGoogle(self.googleClient, weightdata[0]['weight'], WEIGHTD, googleauthfile)
                 self.AddGoogle(self.googleClient, bodydata[0]['fat'], FATD, googleauthfile)
             except:
-                log.error('Unable to update Google Fit: Error sending data.')
+                print('Unable to update Google Fit: Error sending data.')
 
         # finally end this plugin execution with
-        log.info('Finished plugin: ' + __name__)
+        print('Finished plugin: ' + __name__)
