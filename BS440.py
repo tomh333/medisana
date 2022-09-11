@@ -232,8 +232,8 @@ log.addHandler(ch)
 # device_name = config.get('Scale', 'device_name')
 # device_model = config.get('Scale', 'device_model')
 
-ble_address = "6C:47:60:56:BC:B7"
-device_name = "0202B6332211CCBBAA"
+ble_address = "A4:C1:38:36:2A:5D"
+device_name = "0131985D2A3638C1A4"
 device_model = "BS444"
 
 if device_model == 'BS410':
