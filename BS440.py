@@ -234,7 +234,7 @@ log.addHandler(ch)
 
 ble_address = "aa:bb:cc:11:22:33"
 device_name = "0202B6332211CCBBAA"
-device_model = "BS440"
+device_model = "BS444"
 
 if device_model == 'BS410':
     addresstype = pygatt.BLEAddressType.public
