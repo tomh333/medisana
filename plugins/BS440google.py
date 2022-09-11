@@ -61,8 +61,8 @@ class Plugin:
             dataType=newDataType,
             device=dict(
                 type='scale',
-                manufacturer='unknown',
-                model='unknown',
+                manufacturer='medisana',
+                model='BS444',
                 uid='10000001',
                 version='1',
                 )
