@@ -165,7 +165,6 @@ class Plugin:
             self.googleClient = self.GetGoogleClient(googleauthfile)
             self.AddGoogle(self.googleClient, weightdata[0]['weight'], WEIGHTD, googleauthfile)
             self.AddGoogle(self.googleClient, bodydata[0]['fat'], FATD, googleauthfile)
-            print('Unable to update Google Fit: Error sending data.')
 
         # finally end this plugin execution with
         print('Finished plugin: ' + __name__)
